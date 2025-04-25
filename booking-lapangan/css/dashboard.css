@@ -1,0 +1,114 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4; /* Warna latar belakang yang lebih cerah */
+}
+
+.container {
+    display: flex;
+}
+
+nav.sidebar {
+    background: #4a90e2; /* Warna sidebar */
+    color: #ffffff;
+    width: 250px;
+    padding: 20px;
+    height: 100vh; /* Tinggi sidebar penuh */
+    position: fixed; /* Sidebar tetap di tempat */
+}
+
+nav.sidebar .logo {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+nav.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav.sidebar ul li {
+    margin: 15px 0;
+}
+
+nav.sidebar ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+nav.sidebar ul li a:hover {
+    color: #d1e8ff; /* Warna saat hover */
+}
+
+main {
+    margin-left: 250px; /* Memberikan ruang untuk sidebar */
+    padding: 20px;
+    flex: 1;
+    background: #ffffff; /* Warna latar belakang utama */
+}
+
+header {
+    margin-bottom: 20px;
+}
+
+h1 {
+    color: #34495e; /* Warna judul */
+}
+
+.stats, .booking-list {
+    margin-bottom: 20px;
+    padding: 15px;
+    background: #f9f9f9; /* Warna latar belakang bagian */
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.stat-item {
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid #bdc3c7;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background: #4a90e2; /* Warna header tabel */
+    color: #ffffff;
+}
+
+tbody tr:nth-child(even) {
+    background: #f2f2f2; /* Warna latar belakang baris genap */
+}
+
+tbody tr:hover {
+    background: #e1f5fe; /* Warna saat hover pada baris tabel */
+}
+
+footer {
+    background: #4a90e2; /* Warna footer */
+    color: #ffffff;
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}

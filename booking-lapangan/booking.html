@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/booking.css">
+    <title>Formulir Pemesanan</title>
+</head>
+<body>
+    <div class="container">
+        <nav class="sidebar">
+            <div class="logo">Logo</div>
+            <ul>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="booking.html">Booking</a></li>
+                <li><a href="lapangan.html">Lapangan</a></li>
+                <li><a href="users.html">Pengguna</a></li>
+                <li><a href="laporan.html">Laporan</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <header>
+                <h1>Formulir Pemesanan Baru</h1>
+            </header>
+
+            <section class="new-booking">
+                <form>
+                    <label for="field">Lapangan:</label>
+                    <select id="field" required>
+                        <option value="">Pilih Lapangan</option>
+                        <option value="1">Lapangan 1</option>
+                        <option value="2">Lapangan 2</option>
+                        <option value="3">Lapangan 3</option>
+                    </select>
+
+                    <label for="date">Tanggal:</label>
+                    <input type="date" id="date" required>
+
+                    <label for="time">Waktu:</label>
+                    <input type="time" id="time" required>
+
+                    <label for="name">Nama Pemesan:</label>
+                    <input type="text" id="name" required>
+
+                    <label for="contact">Kontak:</label>
+                    <input type="text" id="contact" required>
+
+                    <button type="submit">Buat Pemesanan</button>
+                </form>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

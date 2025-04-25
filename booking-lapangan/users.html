@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/users.css">
+    <title>Pengaturan Pengguna</title>
+</head>
+<body>
+    <div class="container">
+        <nav class="sidebar">
+            <div class="logo">Logo</div>
+            <ul>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="booking.html">Booking</a></li>
+                <li><a href="lapangan.html">Lapangan</a></li>
+                <li><a href="users.html">Pengguna</a></li>
+                <li><a href="laporan.html">Laporan</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <header>
+                <h1>Pengaturan Pengguna</h1>
+            </header>
+
+            <section class="user-settings">
+                <form>
+                    <div class="profile-picture">
+                        <label for="profile-pic">Foto Profil:</label>
+                        <input type="file" id="profile-pic" name="profile-pic" accept="image/*">
+                    </div>
+
+                    <label for="username">Nama Pengguna:</label>
+                    <input type="text" id="username" name="username" required>
+
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="password">Kata Sandi:</label>
+                    <input type="password" id="password" name="password" required>
+
+                    <label for="role">Peran:</label>
+                    <select id="role" name="role">
+                        <option value="admin">Admin</option>
+                        <option value="user">Pengguna</option>
+                    </select>
+
+                    <button type="submit">Simpan Perubahan</button>
+                </form>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
