@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login dan Registrasi</title>
+    <link rel="stylesheet" href="css/loginregist.css">
+</head>
+<body>
+    <div class="container">
+        <div class="form-container login-container">
+            <form action="#">
+                <h1>Login</h1>
+                <input type="email" placeholder="Email" required />
+                <input type="password" placeholder="Kata Sandi" required />
+                <button type="submit">Masuk</button>
+                <span>Belum punya akun? <a href="regist.html" onclick="toggleForm()">Daftar</a></span>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function toggleForm() {
+            const loginContainer = document.querySelector('.login-container');
+            const registerContainer = document.querySelector('.register-container');
+            loginContainer.classList.toggle('active');
+            registerContainer.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
