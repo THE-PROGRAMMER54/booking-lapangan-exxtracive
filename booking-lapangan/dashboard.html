@@ -1,67 +1,46 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/dashboard.css">
-    <title>Dashboard Booking Lapangan</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard | Booking Lapangan</title>
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="shortcut icon" href="icon/favicon.ico" type="image/x-icon">
 </head>
 <body>
-    <div class="container">
-        <nav class="sidebar">
-            <div class="logo">Logo</div>
-            <ul>
-                <li><a href="dashboard.html">Dashboard</a></li>
-                <li><a href="booking.html">Booking</a></li>
-                <li><a href="lapangan.html">Lapangan</a></li>
-                <li><a href="users.html">Pengguna</a></li>
-                <li><a href="laporan.html">Laporan</a></li>
-            </ul>
-        </nav>
+  <div class="container">
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="logo">BookingLapangan</div>
+      <ul>
+        <li><a href="#">Dashboard</a></li>
+        <li><a href="booking.html">Booking</a></li>
+      </ul>
+    </nav>
 
-        <main>
-            <header>
-                <h1>Dashboard Booking Lapangan</h1>
-            </header>
+    <!-- Hero Section -->
+    <section class="herosection">
+      <div class="main">
+        <div class="herotext">
+          <h1>Selamat Datang di BookingLapangan</h1>
+          <p>Pesan lapangan favorit Anda dengan mudah, cepat, dan aman.</p>
+          <a href="booking.html" class="btn-booking">Mulai Booking</a>
+        </div>
+      </div>
+    </section>
 
-            <section class="stats">
-                <h2>Statistik Booking</h2>
-                <div class="stat-item">Total Booking: <span>50</span></div>
-                <div class="stat-item">Booking Hari Ini: <span>5</span></div>
-                <div class="stat-item">Lapangan Tersedia: <span>10</span></div>
-            </section>
-
-            <section class="booking-list">
-                <h2>Daftar Booking</h2>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Nama Pemesan</th>
-                            <th>Tanggal</th>
-                            <th>Waktu</th>
-                            <th>Lapangan</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>John Doe</td>
-                            <td>2023-10-01</td>
-                            <td>10:00</td>
-                            <td>Lapangan 1</td>
-                            <td>Dikonfirmasi</td>
-                        </tr>
-                        <tr>
-                            <td>Jane Smith</td>
-                            <td>2023-10-02</td>
-                            <td>11:00</td>
-                            <td>Lapangan 2</td>
-                            <td>Dibatalkan</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </section>
-        </main>
-    </div>
+    <!-- Section Bawah -->
+    <section class="fitur-section">
+      <div class="fitur">
+        <h2>Kenapa Memilih Kami?</h2>
+        <ul>
+          <li>✅ Proses Booking Mudah dan Cepat</li>
+          <li>✅ Banyak Pilihan Lapangan Berkualitas</li>
+          <li>✅ Harga Terjangkau dan Transparan</li>
+          <li>✅ Dukungan Pelanggan 24/7</li>
+        </ul>
+      </div>
+    </section>
+  </div>
 </body>
 </html>

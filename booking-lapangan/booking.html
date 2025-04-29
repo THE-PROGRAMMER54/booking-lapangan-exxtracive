@@ -1,55 +1,116 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/booking.css">
-    <title>Formulir Pemesanan</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Booking | Booking Lapangan</title>
+  <link rel="stylesheet" href="css/booking.css">
+  <link rel="shortcut icon" href="icon/favicon.ico" type="image/x-icon">
 </head>
 <body>
-    <div class="container">
-        <nav class="sidebar">
-            <div class="logo">Logo</div>
-            <ul>
-                <li><a href="dashboard.html">Dashboard</a></li>
-                <li><a href="booking.html">Booking</a></li>
-                <li><a href="lapangan.html">Lapangan</a></li>
-                <li><a href="users.html">Pengguna</a></li>
-                <li><a href="laporan.html">Laporan</a></li>
-            </ul>
-        </nav>
+  <div class="container">
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="logo">BookingLapangan</div>
+      <ul>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="#">Booking</a></li>
+      </ul>
+    </nav>
 
-        <main>
-            <header>
-                <h1>Formulir Pemesanan Baru</h1>
-            </header>
+    <!-- Hero Section Booking -->
+    <section class="booking-hero">
+      <div class="main">
+        <h1>Pilih Lapangan dan Waktu</h1>
+        <p>Pesan lapangan favorit Anda dengan mudah di bawah ini.</p>
+      </div>
+    </section>
+    <!-- Booking Form -->
+    <section class="booking-form">
+        <div class="form-container">
+            <form action="#" method="POST">
+                <label for="lapangan">Pilih Lapangan:</label>
+                <select id="lapangan" name="lapangan">
+                <option value="lapangan1">Lapangan 1</option>
+                <option value="lapangan2">Lapangan 2</option>
+                <option value="lapangan3">Lapangan 3</option>
+                <option value="lapangan4">Lapangan 4</option>
+                </select>
+        
+                <label for="tanggal">Tanggal Booking:</label>
+                <input type="date" id="tanggal" name="tanggal" required>
+        
+                <label for="waktu-mulai">Jam Mulai:</label>
+                <input type="time" id="waktu-mulai" name="waktu-mulai" required>
+        
+                <label for="waktu-selesai">Jam Selesai:</label>
+                <input type="time" id="waktu-selesai" name="waktu-selesai" required>
 
-            <section class="new-booking">
-                <form>
-                    <label for="field">Lapangan:</label>
-                    <select id="field" required>
-                        <option value="">Pilih Lapangan</option>
-                        <option value="1">Lapangan 1</option>
-                        <option value="2">Lapangan 2</option>
-                        <option value="3">Lapangan 3</option>
-                    </select>
+                <div class="harga">
+                    <h3>Harga:</h3>
+                    <p id="harga">Pilih lapangan dan waktu untuk melihat harga.</p>
+                </div>            
+        
+                <button type="submit" class="btn-booking">Pesan Sekarang</button>
+            </form>
+        </div>
+    </section>
 
-                    <label for="date">Tanggal:</label>
-                    <input type="date" id="date" required>
+    <!-- Halaman Lapangan -->
+    <section class="lapangan-section">
+        <h2>Daftar Lapangan</h2>
+        <div class="lapangan-list">
+            <div class="lapangan-card">
+                <img src="img/lapanganbola1.jpg" alt="Lapangan 1">
+                <div class="lapangan-info">
+                    <h3>Lapangan A</h3>
+                    <p>Kapasitas: 20 Orang</p>
+                    <p>Status: <span class="available">Tersedia</span></p>
+                    <p>Deskripsi: Lapangan dengan fasilitas terbaik untuk permainan futsal atau sepak bola.</p>
+                </div>
+            </div>
 
-                    <label for="time">Waktu:</label>
-                    <input type="time" id="time" required>
+            <div class="lapangan-card">
+                <img src="img/lapanganbola2.jpg" alt="Lapangan 2">
+                <div class="lapangan-info">
+                    <h3>Lapangan B</h3>
+                    <p>Kapasitas: 50 Orang</p>
+                    <p>Status: <span class="not-available">Tidak Tersedia</span></p>
+                    <p>Deskripsi: Lapangan dengan kualitas standar untuk olahraga bersama.</p>
+                </div>
+            </div>
 
-                    <label for="name">Nama Pemesan:</label>
-                    <input type="text" id="name" required>
+            <div class="lapangan-card">
+                <img src="img/lapanganbola3.jpg" alt="Lapangan 3">
+                <div class="lapangan-info">
+                    <h3>Lapangan C</h3>
+                    <p>Kapasitas: 50 Orang</p>
+                    <p>Status: <span class="available">Tersedia</span></p>
+                    <p>Deskripsi: Lapangan kecil yang cocok untuk latihan individu atau permainan kecil.</p>
+                </div>
+            </div>
 
-                    <label for="contact">Kontak:</label>
-                    <input type="text" id="contact" required>
+            <div class="lapangan-card">
+                <img src="img/lapangan-futsal.jpg" alt="Lapangan 4">
+                <div class="lapangan-info">
+                    <h3>Lapangan D</h3>
+                    <p>Kapasitas: 22 Orang</p>
+                    <p>Status: <span class="not-available">Tidak Tersedia</span></p>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequatur, dolore.</p>
+                </div>
+            </div>
 
-                    <button type="submit">Buat Pemesanan</button>
-                </form>
-            </section>
-        </main>
-    </div>
+            <div class="lapangan-card">
+                <img src="img/lapangan-futsal2.jpg" alt="Lapangan 5">
+                <div class="lapangan-info">
+                    <h3>Lapangan E</h3>
+                    <p>Kapasitas: 32 Orang</p>
+                    <p>Status: <span class="available">Tersedia</span></p>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequatur, dolore.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+  </div>
 </body>
 </html>
