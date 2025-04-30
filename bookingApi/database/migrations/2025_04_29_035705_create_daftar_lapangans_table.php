@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string("nama_lapangan");
             $table->integer("kapasitas");
+            $table->string("alamat");
             $table->string("deskripsi");
             $table->bigInteger("harga");
             $table->timestamps();

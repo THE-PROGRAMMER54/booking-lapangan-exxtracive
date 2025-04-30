@@ -50,6 +50,18 @@ body {
     transition: color 0.3s;
 }
 
+.btn-keranjang {
+    background-color: #007bff00;
+    color: white;
+    border: none;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+  }
+  
+.btn-keranjang:hover {
+    color: #ff6600;
+}
+
 .navbar ul li a:hover {
     color: #ff6600;
 }
@@ -105,7 +117,7 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
   
-  label {
+label {
     font-size: 16px;
     margin-bottom: 10px;
     display: block;
@@ -242,14 +254,15 @@ button[type="submit"]:hover {
     }
     
     .navbar {
-        flex-direction: column;
-        align-items: flex-start;
+        flex-wrap: wrap; /* Boleh wrap, tapi tetap arah baris */
     }
+    
     .navbar ul {
-        flex-direction: column;
+        flex-direction: row; /* Tetap horizontal */
+        flex-wrap: wrap;
         gap: 10px;
-        margin-top: 10px;
     }
+    
     .booking-hero {
         height: 40vh;
     }
@@ -265,3 +278,89 @@ button[type="submit"]:hover {
         width: 90%;
     }
 }
+
+/* bagian keranjang */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    padding-top: 100px;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+  
+.modal-content {
+    width: 80%;
+    max-width: 1000px; 
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+.h2-keranjang{
+    text-align: center;
+}
+
+.close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 24px;
+    cursor: pointer;
+}
+  
+.close-btn:hover {
+    color: #000;
+}
+  
+.booking-table-container {
+    max-height: 300px;
+    overflow-y: auto;   
+}
+
+.booking-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.booking-table th, .booking-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+.booking-table th {
+    position: sticky;
+    top: -0.1px;
+    background-color: #fff;
+    z-index: 1;
+}
+
+.btn-pending {
+    background-color: orange;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+  
+.btn-paid {
+    background-color: green;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+  
+.btn-cancel {
+    background-color: red;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+  

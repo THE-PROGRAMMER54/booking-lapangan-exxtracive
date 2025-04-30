@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dashboard | Booking Lapangan</title>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/bold/style.css"/>
   <link rel="stylesheet" href="css/dashboard.css">
   <link rel="shortcut icon" href="icon/favicon.ico" type="image/x-icon">
 </head>
@@ -15,6 +16,10 @@
       <ul>
         <li><a href="#">Dashboard</a></li>
         <li><a href="booking.html">Booking</a></li>
+        <li><a href="jadwal-lapangan.html">Jadwal Lapangan</a></li>
+        <li>
+            <button id="btnKeranjang" class="btn-keranjang"><i class="ph-bold ph-shopping-cart"></i></button>
+        </li>
       </ul>
     </nav>
 
@@ -41,6 +46,33 @@
         </ul>
       </div>
     </section>
+    
+    <div id="modalKeranjang" class="modal" style="display: none;">
+      <div class="modal-content">
+        <span class="close-btn" style="cursor: pointer;">&times;</span>
+        <h2 class="h2-keranjang">Daftar Transaksi Anda</h2>
+        <div class="booking-table-container">
+          <table class="booking-table">
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>Lapangan</th>
+                <th>Alamat</th>
+                <th>Tanggal</th>
+                <th>Jam</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="isiBooking">
+              <!-- Data akan dimasukkan di sini -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>  
   </div>
+
+  <script src="js/dashboard.js"></script>
 </body>
 </html>
