@@ -1,94 +1,123 @@
 document.addEventListener("DOMContentLoaded", function () {
-    document.getElementById('formCekJadwal').addEventListener('submit', function(e) {
-        e.preventDefault();
+    const form = document.getElementById("formCekJadwal");
+    const hasil = document.getElementById("hasilJadwalKosong");
+    const tanggalInput = document.getElementById("tanggal");
+    const lapanganInput = document.getElementById("lapangan");
+    const btnKeranjang = document.getElementById("btnKeranjang");
+    const modal = document.getElementById("modalKeranjang");
+    const closeBtn = document.querySelector(".close-btn");
+    const isiBooking = document.getElementById("isiBooking");
+
+    const semuaJam = [
+        { start: '08:00', end: '09:00' },
+        { start: '09:00', end: '10:00' },
+        { start: '10:00', end: '11:00' },
+        { start: '11:00', end: '12:00' },
+        { start: '13:00', end: '14:00' },
+        { start: '14:00', end: '15:00' },
+        { start: '15:00', end: '16:00' },
+        { start: '16:00', end: '17:00' },
+        { start: '17:00', end: '18:00' },
+        { start: '18:00', end: '19:00' },
+        { start: '20:00', end: '21:00' },
+        { start: '21:00', end: '22:00' },
+        { start: '22:00', end: '23:00' },
+        { start: '23:00', end: '00:00' },
+    ];
+
+    const dataBookingSimulasi = [
+        { tanggal: '2025-05-01', lapangan: 'Futsal', jamMulai: '15:00', jamSelesai: '17:00' },
+        { tanggal: '2025-05-01', lapangan: 'Futsal', jamMulai: '17:00', jamSelesai: '18:00' },
+        { tanggal: '2025-05-03', lapangan: 'futsal', jamMulai: '08:00', jamSelesai: '13:00' }
+    ];
+
+    const dataKeranjang = [
+        { lapangan: "Lapangan Futsal", alamat: "Jl. Mawar No. 123", tanggal: "2025-05-01", jamMulai: "15:00", jamSelesai: "17:00", status: "Pending" },
+        { lapangan: "Lapangan Basket", alamat: "Jl. Melati No. 456", tanggal: "2025-05-02", jamMulai: "10:00", jamSelesai: "11:00", status: "Sudah Bayar" },
+    ];
+
+    function timeToMinutes(time) {
+        const [hour, minute] = time.split(':').map(Number);
+        return hour * 60 + minute;
+    }
+
+    function overlaps(start1, end1, start2, end2) {
+        return timeToMinutes(start1) < timeToMinutes(end2) && timeToMinutes(end1) > timeToMinutes(start2);
+    }
+
+    form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const tanggal = tanggalInput.value;
+    const lapangan = lapanganInput.value;
+
+    console.log('Tanggal yang dipilih:', tanggal);  // Debugging tanggal
+    console.log('Lapangan yang dipilih:', lapangan);  // Debugging lapangan
+
+    if (!tanggal) {
+        alert("Silakan pilih tanggal terlebih dahulu.");
+        return;
+    }
+
+    // Filter data booking berdasarkan tanggal dan lapangan
+    const jadwalHariIni = dataBookingSimulasi.filter(
+        item => item.tanggal === tanggal && item.lapangan === lapangan
+    );
+
+    console.log('Jadwal Hari Ini:', jadwalHariIni);  // Debugging untuk hasil filter
+
+    const jamKosong = semuaJam.filter(slot => {
+        return !jadwalHariIni.some(b => overlaps(slot.start, slot.end, b.jamMulai, b.jamSelesai));
+    });
+
+    console.log('Jam Kosong:', jamKosong);  // Debugging jam kosong
+
+    // Menampilkan hasil
+    hasil.innerHTML = `<h3>Jadwal Kosong untuk ${lapangan} pada ${tanggal}</h3>`;
     
-        const tanggal = document.getElementById('tanggal').value;
-        const lapangan = document.getElementById('lapangan').value;
-    
-        // Simulasi data booking
-        const dataBooking = [
-        { tanggal: '2025-05-01', lapangan: 'Futsal', jam: '15:00 - 17:00' },
-        { tanggal: '2025-05-01', lapangan: 'Futsal', jam: '17:00 - 18:00' },
-        { tanggal: '2025-05-01', lapangan: 'Basket', jam: '10:00 - 11:00' },
-        ];
-    
-        const semuaJam = [
-        '08:00 - 09:00',
-        '09:00 - 10:00',
-        '10:00 - 11:00',
-        '11:00 - 12:00',
-        '13:00 - 14:00',
-        '14:00 - 15:00',
-        '15:00 - 16:00',
-        '16:00 - 17:00',
-        '17:00 - 18:00',
-        '18:00 - 19:00',
-        ];
-    
-        const hasil = document.getElementById('hasilJadwalKosong');
-        hasil.innerHTML = `<h3>Jadwal Kosong untuk ${lapangan} pada ${tanggal}</h3>`;
-    
-        const bookingTanggalIni = dataBooking.filter(item => item.tanggal === tanggal && item.lapangan === lapangan);
-        const jamTerbooking = bookingTanggalIni.map(item => item.jam);
-    
-        const jamKosong = semuaJam.filter(jam => !jamTerbooking.includes(jam));
-    
-        if (jamKosong.length === 0) {
-        hasil.innerHTML += '<p>Tidak ada jadwal kosong.</p>';
-        } else {
-        const ul = document.createElement('ul');
+    if (jamKosong.length === 0) {
+        hasil.innerHTML += "<p>Tidak ada jadwal kosong.</p>";
+    } else {
+        const ul = document.createElement("ul");
         jamKosong.forEach(jam => {
-            const li = document.createElement('li');
-            li.textContent = jam;
+            const li = document.createElement("li");
+            li.textContent = `${jam.start} - ${jam.end}`;
             ul.appendChild(li);
         });
         hasil.appendChild(ul);
-        }
-    });
-    
-    const modal = document.getElementById("modalKeranjang");
-    const btn = document.getElementById("btnKeranjang");
-    const closeBtn = document.querySelector(".close-btn");
-    const section = document.getElementById("isiBooking");
-    
-    const dataBooking = [
-        { lapangan: "Lapangan Futsal", alamat: "Jl. Mawar No. 123", tanggal: "2025-05-01", jamMulai: "15:00", jamSelesai: "17:00", status: "Pending" },
-        { lapangan: "Lapangan Basket", alamat: "Jl. Melati No. 456", tanggal: "2025-05-02", jamMulai: "10:00", jamSelesai: "11:00", status: "Sudah Bayar" },
-        { lapangan: "Lapangan Bulutangkis", alamat: "Jl. Kenanga No. 789", tanggal: "2025-05-03", jamMulai: "12:00", jamSelesai: "14:00", status: "Pending" },
-        { lapangan: "Lapangan Tenis", alamat: "Jl. Anggrek No. 101", tanggal: "2025-05-04", jamMulai: "09:00", jamSelesai: "11:00", status: "Sudah Bayar" },
-        { lapangan: "Lapangan Voli", alamat: "Jl. Dahlia No. 112", tanggal: "2025-05-05", jamMulai: "16:00", jamSelesai: "18:00", status: "Pending" },
-        { lapangan: "Lapangan Futsal", alamat: "Jl. Mawar No. 123", tanggal: "2025-05-06", jamMulai: "13:00", jamSelesai: "15:00", status: "Sudah Bayar" },
-        { lapangan: "Lapangan Basket", alamat: "Jl. Melati No. 456", tanggal: "2025-05-07", jamMulai: "08:00", jamSelesai: "10:00", status: "Pending" },
-        { lapangan: "Lapangan Bulutangkis", alamat: "Jl. Kenanga No. 789", tanggal: "2025-05-08", jamMulai: "11:00", jamSelesai: "13:00", status: "Sudah Bayar" },
-        { lapangan: "Lapangan Tenis", alamat: "Jl. Anggrek No. 101", tanggal: "2025-05-09", jamMulai: "14:00", jamSelesai: "16:00", status: "Pending" },
-        { lapangan: "Lapangan Voli", alamat: "Jl. Dahlia No. 112", tanggal: "2025-05-10", jamMulai: "17:00", jamSelesai: "19:00", status: "Sudah Bayar" },
-        { lapangan: "Lapangan Futsal", alamat: "Jl. Mawar No. 123", tanggal: "2025-05-11", jamMulai: "19:00", jamSelesai: "21:00", status: "Pending" },
-        { lapangan: "Lapangan Basket", alamat: "Jl. Melati No. 456", tanggal: "2025-05-12", jamMulai: "08:30", jamSelesai: "10:30", status: "Sudah Bayar" }
-    ];
+    }
 
-    btn.addEventListener("click", () => {
-        section.innerHTML = "";
-        dataBooking.forEach((item, index) => {
-            section.innerHTML += `
+    // Menampilkan hasil
+    hasil.style.display = "block";  // Menampilkan elemen hasil
+});
+
+    // Tombol keranjang
+    btnKeranjang.addEventListener("click", () => {
+        isiBooking.innerHTML = "";
+
+        dataKeranjang.forEach((item, index) => {
+            const statusClass = item.status === "Pending" ? "btn-pending" : "btn-paid";
+            isiBooking.innerHTML += `
                 <tr>
                     <td>${index + 1}</td>
                     <td>${item.lapangan}</td>
                     <td>${item.alamat}</td>
                     <td>${item.tanggal}</td>
                     <td>${item.jamMulai} - ${item.jamSelesai}</td>
-                    <td>
-                        <button class="${item.status === 'Pending' ? 'btn-pending' : 'btn-paid'}">${item.status}</button>
-                    </td>
-                    <td>
-                        <button class="btn-cancel">Batalkan</button>
-                    </td>
+                    <td><button class="${statusClass}">${item.status}</button></td>
+                    <td><button class="btn-cancel">Batalkan</button></td>
                 </tr>
             `;
         });
+
         modal.style.display = "block";
     });
 
     closeBtn.onclick = () => modal.style.display = "none";
-    window.onclick = (e) => { if (e.target == modal) modal.style.display = "none"; };
+
+    window.onclick = (e) => {
+        if (e.target === modal) {
+            modal.style.display = "none";
+        }
+    };
 });
-  

@@ -1,33 +1,33 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Cek Jadwal Lapangan Kosong</title>
-  <link rel="stylesheet" href="css/jadwal-lapangan.css">
+  <link rel="stylesheet" href="css/jadwal-lapangan.css" />
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/bold/style.css"/>
   <link rel="shortcut icon" href="icon/favicon.ico" type="image/x-icon">
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar">
-      <div class="logo">BookingLapangan</div>
-      <ul>
-        <li><a href="#">Dashboard</a></li>
-        <li><a href="booking.html">Booking</a></li>
-        <li><a href="#">Jadwal Lapangan</a></li>
-        <li>
-            <button id="btnKeranjang" class="btn-keranjang"><i class="ph-bold ph-shopping-cart"></i></button>
-        </li>
-      </ul>
-    </nav>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">BookingLapangan</div>
+    <ul>
+      <li><a href="dashboard.html">Dashboard</a></li>
+      <li><a href="booking.html">Booking</a></li>
+      <li><a href="#">Jadwal Lapangan</a></li>
+      <li>
+        <button id="btnKeranjang" class="btn-keranjang"><i class="ph-bold ph-shopping-cart"></i></button>
+      </li>
+    </ul>
+  </nav>
 
-    <div class="container">
-        <h1>Cek Jadwal Lapangan Kosong</h1>
+  <div class="container">
+    <h1>Cek Jadwal Lapangan Kosong</h1>
 
-        <form id="formCekJadwal">
+    <form id="formCekJadwal" class="form">
         <label for="tanggal">Pilih Tanggal:</label>
-        <input type="date" id="tanggal" required>
+        <input type="date" id="tanggal" required />
 
         <label for="lapangan">Pilih Lapangan:</label>
         <select id="lapangan">
@@ -36,35 +36,38 @@
         </select>
 
         <button type="submit">Cek Jadwal</button>
-        </form>
+    </form>
 
-        <div id="hasilJadwalKosong"></div>
+    <div id="hasilJadwalKosong" class="hasil"></div>
+</div>
+
+
+  <!-- Modal Keranjang -->
+  <div id="modalKeranjang" class="modal" style="display: none;">
+    <div class="modal-content">
+      <span class="close-btn" style="cursor: pointer;">&times;</span>
+      <h2 class="h2-keranjang">Daftar Transaksi Anda</h2>
+      <div class="booking-table-container">
+        <table class="booking-table">
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Lapangan</th>
+              <th>Alamat</th>
+              <th>Tanggal</th>
+              <th>Jam</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="isiBooking">
+            <!-- Data booking di sini -->
+          </tbody>
+        </table>
+      </div>
     </div>
-    <div id="modalKeranjang" class="modal" style="display: none;">
-        <div class="modal-content">
-          <span class="close-btn" style="cursor: pointer;">&times;</span>
-          <h2 class="h2-keranjang">Daftar Transaksi Anda</h2>
-          <div class="booking-table-container">
-            <table class="booking-table">
-              <thead>
-                <tr>
-                  <th>No</th>
-                  <th>Lapangan</th>
-                  <th>Alamat</th>
-                  <th>Tanggal</th>
-                  <th>Jam</th>
-                  <th>Status</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody id="isiBooking">
-                <!-- Data akan dimasukkan di sini -->
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>  
+  </div>
 
-    <script src="js/jadwal-lapangan.js"></script>
+  <script src="js/jadwal-lapangan.js"></script>
 </body>
 </html>
